@@ -1,0 +1,83 @@
+* {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: orangered;
+}
+
+header {
+    background-color: black;
+    padding: 10px;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+
+}
+
+li {
+    margin: 15px;
+    height: max-content;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+a:hover {
+    color: gray;
+}
+
+section {
+    padding: 40px;
+    height: 700px;
+}
+
+#home {
+    background-color: white;
+    justify-content: center;
+}
+
+#contato {
+    background-color: black;
+    color: white;
+
+
+}
+
+#sobre {
+    background-color: white;
+    color: black;
+
+
+}
+
+#viagem {
+    background-color: black;
+    color: white;
+
+
+}
+
+.incorporation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.vd-description {
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
