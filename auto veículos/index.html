@@ -18,22 +18,138 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background-color: rgb(138, 175, 190);
+            font-family: 'Roboto', sans-serif;
+            background-color: hsla(0, 0%, 85%, 0.849);
+            color: #333;
         }
 
-        .home-img {
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #333333 !important;
+        }
+
+        .nav-link {
+            color: #333333 !important;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffcc00 !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 204, 0, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Ocupa toda a altura da tela */
+            overflow: hidden;
+        }
+
+        .video-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Overlay com 50% de opacidade */
             display: flex;
+            align-items: center;
             justify-content: center;
+            color: #fff;
             text-align: center;
         }
 
-        .home-1 {
+        .video-overlay h1 {
+            font-weight: 700;
+            color: #ffcc00;
+        }
+
+        .video-overlay h5 {
+            font-weight: 400;
+            color: #ccc;
+        }
+
+        .video-overlay a {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .video-overlay a:hover {
+            background-color: #333;
+            color: #ffcc00;
+        }
+
+        .titulos-carros {
+            background-image: url('car-image.jpg');
+            background-size: cover;
+            padding: 40px;
+        }
+
+        .titulos-carros .card {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .titulos-carros .card-body {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .titulos-carros:hover .card-body {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-weight: 700;
+            color: #333;
+        }
+
+        h5 {
+            font-weight: 400;
+            color: #666;
+        }
+
+        .titulos-carros {
             display: flex;
             justify-content: center;
             text-align: center;
-            font-family: Georgia, serif;
+            font-family: 'Roboto', sans-serif;
             padding: 5px;
             margin: 5px;
 
@@ -43,19 +159,66 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            font-family: Georgia, serif;
+            font-family: 'Roboto', sans-serif;
             padding: 10px;
         }
 
         .home-2 {
-            font-family: Georgia, serif;
+            font-family: 'Roboto', sans-serif;
             padding: 10px;
         }
 
         .card {
-            padding: 20px;
-            margin: 20px;
-            font-family: Georgia, serif;
+            border: none;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+            margin: 15px;
+        }
+
+        .card-group {
+            margin: 15px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card-title i {
+            margin-right: 10px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            border: none;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+            color: #ffcc00;
+        }
+
+        .card-img-top {
+            height: 270px;
+            object-fit: cover;
+        }
+
+
+        footer {
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 
@@ -63,277 +226,291 @@
 
 <body>
     <!-- Barra de navegação -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">Auto Car</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="./nossos-servs.htmlnavbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#home-2">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contato.html">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./nossos-servs.html">Nossos Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="sobre-nos.html">Sobre Nós</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Pesquise Aqui..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!-- Home inicial -->
-    <div class="home-1">
-        <div class="card">
-            <div class="card-body">
-                <h1>Auto Car - A Sua Locadora De Veículos</h1>
-                <h5>Alugar um carro nunca foi tão fácil. Encontre o veículo perfeito para suas necessidades, com opções
-                    de
-                    modelos e tamanhos para
-                    todos os gostos.</h5>
-            </div>
-        </div>
-    </div>
-    <!-- Carrossel Home -->
-    <div class="home-img">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/R.png " class="d-block w-100" alt="PICAPE DODGE RAM" height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/harleybolada.png" class="d-block w-100" alt="HARLEY DAVIDSON SPORTSTER"
-                        height="500px">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/truckpng.parspng.com-9.png" class="d-block w-100" alt="CAMINHÃO VOLVO"
-                        height="500px">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
 
-    <!-- button-home -->
-    <div class="button-home">
-        <a href="#cards"><button type="button" class="btn btn-primary">Alugue Já Seu
-                Veículo!</button></a>
-    </div>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">Auto Car</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#home-2">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contato.html">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./sobre-nos.html">Sobre Nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./nossos-servs.html">Nossos Serviços</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Home Final -->
-    <div id="home-2">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Nossa Frota Diversificada</h3>
-                        <p class="card-text">Na Autocar, oferecemos uma ampla gama de veículos para atender a todas as
-                            suas
-                            necessidades. Desde carros econômicos para o dia a dia até SUVs de luxo para viagens
-                            inesquecíveis. Descubra nossos modelos e encontre o carro perfeito para você.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Ofertas Imperdíveis</h3>
-                        <p class="card-text">Quer alugar um carro sem gastar muito? Confira nossas promoções exclusivas
-                            e
-                            tarifas especiais. Na Autocar, sempre temos uma oferta que cabe no seu bolso. Aproveite
-                            nossas
-                            condições especiais de pagamento e aluguéis de longo prazo.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Atendimento de Primeira Classe</h3>
-                        <p class="card-text">Nosso compromisso é oferecer um atendimento excepcional. Nossa equipe está
-                            pronta para ajudá-lo a encontrar o carro ideal e garantir uma experiência tranquila e sem
-                            complicações. Na Autocar, você é nossa prioridade.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Reserve Agora</h3>
-                        <p class="card-text">Pronto para pegar a estrada? Faça sua reserva de forma rápida e fácil
-                            diretamente em nosso site. Com apenas alguns cliques, você garante o carro que deseja, no
-                            local
-                            e data que precisar. Reserve agora e sinta a liberdade de dirigir com a Autocar.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Qualidade e Segurança</h3>
-                        <p class="card-text">Na Autocar, a segurança dos nossos clientes é primordial. Todos os nossos
-                            veículos passam por rigorosas inspeções de manutenção e são higienizados após cada aluguel.
-                            Viaje com a tranquilidade de saber que você está em boas mãos.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Flexibilidade e Conveniência</h3>
-                        <p class="card-text">Com a Autocar, você tem a liberdade de escolher como e quando alugar.
-                            Oferecemos opções de aluguel flexíveis que se adaptam ao seu estilo de vida. Quer seja para
-                            um fim de semana, uma viagem de negócios ou um mês inteiro, temos a solução perfeita para
-                            você.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cards de carros -->
-    <div id="cards">
-        <div class="home-1">
-            <div class="card">
-                <div class="card-body">
-                    <h1>Nossos Principais Veículos:</h1>
+        <!-- Vídeo Home -->
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="./img/5309381-hd_1920_1080_25fps.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="video-overlay">
+                <div>
+                    <h1>Auto Car - A Sua Locadora De Veículos</h1>
+                    <h5>Alugar um carro nunca foi tão fácil. Encontre o veículo perfeito para suas necessidades, com
+                        opções de modelos e tamanhos para todos os gostos.</h5>
+                    <a href="#cards" class="btn btn-primary mt-3">Alugue Já Seu
+                        Veículo!</a>
                 </div>
             </div>
         </div>
 
+        <!-- Home Final -->
+        <div id="home-2" class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-car"></i> Nossa Frota Diversificada</h3>
+                            <p class="card-text">Na Autocar, oferecemos uma ampla gama de veículos para atender a todas
+                                as suas necessidades. Desde carros econômicos para o dia a dia até SUVs de luxo para
+                                viagens inesquecíveis. Descubra nossos modelos e encontre o carro perfeito para você.
+                            </p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-tag"></i> Ofertas Imperdíveis</h3>
+                            <p class="card-text">Quer alugar um carro sem gastar muito? Confira nossas promoções
+                                exclusivas e tarifas especiais. Na Autocar, sempre temos uma oferta que cabe no seu
+                                bolso. Aproveite nossas condições especiais de pagamento e aluguéis de longo prazo.</p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-star"></i> Atendimento de Primeira Classe</h3>
+                            <p class="card-text">Nosso compromisso é oferecer um atendimento excepcional. Nossa equipe
+                                está pronta para ajudá-lo a encontrar o carro ideal e garantir uma experiência tranquila
+                                e sem complicações. Na Autocar, você é nossa prioridade.</p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Reserve Agora</h3>
+                            <p class="card-text">Pronto para pegar a estrada? Faça sua reserva de forma rápida e fácil
+                                diretamente em nosso site. Com apenas alguns cliques, você garante o carro que deseja,
+                                no local e data que precisar. Reserve agora e sinta a liberdade de dirigir com a
+                                Autocar.</p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-shield-alt"></i> Qualidade e Segurança</h3>
+                            <p class="card-text">Na Autocar, a segurança dos nossos clientes é primordial. Todos os
+                                nossos veículos passam por rigorosas inspeções de manutenção e são higienizados após
+                                cada aluguel. Viaje com a tranquilidade de saber que você está em boas mãos.</p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fas fa-sync-alt"></i> Flexibilidade e Conveniência</h3>
+                            <p class="card-text">Com a Autocar, você tem a liberdade de escolher como e quando alugar.
+                                Oferecemos opções de aluguel flexíveis que se adaptam ao seu estilo de vida. Quer seja
+                                para um fim de semana, uma viagem de negócios ou um mês inteiro, temos a solução
+                                perfeita para você.</p>
+                            <a href="./nossos-servs.html" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards de carros -->
+        <div id="cards">
+            <div class="titulos-carros">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Nossos Principais Veículos:</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="./img/sw4-1.png" class="card-img-top" alt="SW4 - 2024">
+                    <div class="card-body">
+                        <h3 class="card-title">TOYOTA HILUX SW4 - 2024</h3>
+                        <p class="card-text"><i>Aventure-se com estilo e potência. O novo SW4 2024 combina robustez
+                                e
+                                sofisticação
+                                para qualquer terreno, proporcionando segurança e luxo em cada viagem.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <img src="./img/2023-honda-civic-type-r-04-msp.jpg" class="card-img-top" alt="Honda Civic - 2024">
+                    <div class="card-body">
+                        <h3 class="card-title">HONDA CIVIC - 2024</h3>
+                        <p class="card-text"><i>Desempenho esportivo e design arrojado. O novo Civic 2024 oferece
+                                inovação
+                                tecnológica e eficiência para uma condução emocionante e segura.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <img src="./img/2023_toyota_corolla_sedan_xse_fq_oem_1_600.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h3 class="card-title">TOYOTA COROLLA - 2017</h3>
+                        <p class="card-text"><i>Elegância e eficiência se unem no Corolla 2017. Conforto,
+                                tecnologia de
+                                ponta e
+                                economia de combustível para uma experiência de condução incomparável.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <div class="card">
+                    <img src="./img/L200.png" class="card-img-top" alt="TRITON L200">
+                    <div class="card-body">
+                        <h3 class="card-title">MITSUBISHI TRITON L200 - 2024</h3>
+                        <p class="card-text"><i>Conquiste qualquer terreno com a robusta e poderosa TRITON L200 2024.
+                                Perfeita
+                                para aventuras off-road e viagens urbanas, combinando força e conforto.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <img src="./img/cruze-midnight-04-.avif" class="card-img-top" alt="CHEVROLET CRUZE - 2024">
+                    <div class="card-body">
+                        <h3 class="card-title">CHEVROLET CRUZE - 2024</h3>
+                        <p class="card-text"><i>Estilo e inovação se encontram no Cruze 2024. Desfrute de uma condução
+                                suave
+                                com tecnologia de ponta, ideal para quem busca elegância e desempenho.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <img src="./img/Mitsubishi-Lancer-Evo-2.jpg" class="card-img-top" alt="MITSUBISHI LANCER - 2024">
+                    <div class="card-body">
+                        <h3 class="card-title">MITSUBISHI LANCER EVO - 2024</h3>
+                        <p class="card-text"><i>O Lancer é a mistura perfeita de esportividade e eficiência. Sinta a
+                                emoção
+                                ao
+                                dirigir um veículo com design arrojado e alta performance.</i></p>
+                        <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver
+                                Mais</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="card-group">
             <div class="card">
-                <img src="./img/sw4-1.png" class="card-img-top" alt="SW4 - 2024" height="270px">
+                <img src="./img/Harley-Davidson-XL-1200-X-Sportster-Forty-Eight-R.jpg" class="card-img-top"
+                    alt="2012 Harley Davidson XL1200X Forty Eight Sportster R">
                 <div class="card-body">
-                    <h3 class="card-title">TOYOTA HILUX SW4 - 2024</h3>
-                    <p class="card-text"><i>Aventure-se com estilo e potência. O novo SW4 2024 combina robustez
-                            e
-                            sofisticação
-                            para qualquer terreno, proporcionando segurança e luxo em cada viagem.</i></p>
+                    <h3 class="card-title">Harley Davidson XL1200X Forty Eight Sportster R - 2012</h3>
+                    <p class="card-text"><i>A Harley Davidson Sportster XL1200 é o epitome de liberdade sobre duas
+                            rodas.
+                            Com seu design clássico e motor potente, proporciona uma viagem inesquecível e cheia de
+                            personalidade.</i></p>
                     <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
                 </div>
 
             </div>
             <div class="card">
-                <img src="./img/434f8c968af300c18eb7a301b0381e4b.png" class="card-img-top" alt="Honda Civic - 2024"
-                    height="270px">
+                <img src="./img/2017_Kawasaki_Ninja_650_left.jpg" class="card-img-top" alt="Kawasaki Ninja 650R 2018">
                 <div class="card-body">
-                    <h3 class="card-title">HONDA CIVIC - 2024</h3>
-                    <p class="card-text"><i>Desempenho esportivo e design arrojado. O novo Civic 2024 oferece
-                            inovação
-                            tecnológica e eficiência para uma condução emocionante e segura.</i></p>
+                    <h3 class="card-title">Kawasaki Ninja 650R - 2018</h3>
+                    <p class="card-text"><i>Descubra a adrenalina em duas rodas com a Kawasaki Ninja 650R 2018.
+                            Combinando
+                            potência e estilo aerodinâmico, esta moto oferece uma experiência de condução emocionante e
+                            ágil.</i></p>
                     <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
                 </div>
 
             </div>
             <div class="card">
-                <img src="./img/2023_toyota_corolla_sedan_xse_fq_oem_1_600.png" class="card-img-top" alt="..."
-                    height="270px">
+                <img src="./img/TIGER.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h3 class="card-title">TOYOTA COROLLA - 2017</h3>
-                    <p class="card-text"><i>Elegância e eficiência se unem no Corolla 2017. Conforto,
-                            tecnologia de
-                            ponta e
-                            economia de combustível para uma experiência de condução incomparável.</i></p>
+                    <h3 class="card-title">TRIUMPH TIGER 1200 EXPLORER - 2015</h3>
+                    <p class="card-text"><i>Encare qualquer aventura com a Tiger. Essa moto é sinônimo de resistência e
+                            versatilidade, perfeita para explorar novos horizontes, seja na cidade ou em trilhas
+                            desafiadoras.</i></p>
                     <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
                 </div>
             </div>
         </div>
 
-        <div class="card-group">
-            <div class="card">
-                <img src="./img/L200.png" class="card-img-top" alt="TRITON L200" height="270px">
-                <div class="card-body">
-                    <h3 class="card-title">MITSUBISHI TRITON L200 - 2024</h3>
-                    <p class="card-text"><i>Conquiste qualquer terreno com a robusta e poderosa TRITON L200 2024.
-                            Perfeita
-                            para aventuras off-road e viagens urbanas, combinando força e conforto.</i></p>
-                    <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
+        <!-- Rodapé -->
+        <footer>
+            <div style="background-color: #1f1f1f; color: #fff; padding: 20px 0; text-align: center;">
+                <div style="max-width: 1200px; margin: 0 auto;">
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                        <div style="flex: 1; min-width: 200px; padding: 10px;">
+                            <h3 style="color: #ffcc00;;">Auto Car</h3>
+                            <p>Seu parceiro de confiança para todas as suas necessidades automotivas.</p>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; padding: 10px;">
+                            <h4>Contato</h4>
+                            <p>Email: contato@autocar.com</p>
+                            <p>Telefone: (61) 4002-8922</p>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; padding: 10px;">
+                            <h4>Endereço</h4>
+                            <p>Rua dos Automóveis, 123</p>
+                            <p>Brasília, DF, 70000-000</p>
+                        </div>
+                        <div style="flex: 1; min-width: 200px; padding: 10px;">
+                            <h4>Siga-nos</h4>
+                            <p>
+                                <a href="https://pt-br.facebook.com/" target="_blank"
+                                    style="color: #ffcc00;; text-decoration: none;">Facebook</a> |
+                                <a href="https://www.instagram.com/" target="_blank"
+                                    style="color: #ffcc00;; text-decoration: none;">Instagram</a> |
+                                <a href="https://www.youtube.com/" target="_blank"
+                                    style="color: #ffcc00;; text-decoration: none;">YouTube</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <p>&copy; 2024 Auto Car. Todos os direitos reservados.</p>
+                    </div>
                 </div>
-
             </div>
-            <div class="card">
-                <img src="./img/cruze-midnight-04-.avif" class="card-img-top" alt="CHEVROLET CRUZE - 2024"
-                    height="270px">
-                <div class="card-body">
-                    <h3 class="card-title">CHEVROLET CRUZE - 2024</h3>
-                    <p class="card-text"><i>Estilo e inovação se encontram no Cruze 2024. Desfrute de uma condução
-                            suave
-                            com tecnologia de ponta, ideal para quem busca elegância e desempenho.</i></p>
-                    <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
-                </div>
-
-            </div>
-            <div class="card">
-                <img src="./img/Mitsubishi-Lancer-Evo-2.jpg" class="card-img-top" alt="MITSUBISHI LANCER - 2024"
-                    height="270px">
-                <div class="card-body">
-                    <h3 class="card-title">MITSUBISHI LANCER EVO - 2024</h3>
-                    <p class="card-text"><i>O Lancer é a mistura perfeita de esportividade e eficiência. Sinta a emoção
-                            ao
-                            dirigir um veículo com design arrojado e alta performance.</i></p>
-                    <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card-group">
-        <div class="card">
-            <img src="./img/Harley-Davidson-XL-1200-X-Sportster-Forty-Eight-R.jpg" class="card-img-top"
-                alt="2012 Harley Davidson XL1200X Forty Eight Sportster R" height="270px">
-            <div class="card-body">
-                <h3 class="card-title">Harley Davidson XL1200X Forty Eight Sportster R - 2012</h3>
-                <p class="card-text"><i>A Harley Davidson Sportster XL1200 é o epitome de liberdade sobre duas rodas.
-                        Com seu design clássico e motor potente, proporciona uma viagem inesquecível e cheia de
-                        personalidade.</i></p>
-                <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
-            </div>
-
-        </div>
-        <div class="card">
-            <img src="./img/2017_Kawasaki_Ninja_650_left.jpg" class="card-img-top" alt="Kawasaki Ninja 650R 2018"
-                height="270px">
-            <div class="card-body">
-                <h3 class="card-title">Kawasaki Ninja 650R - 2018</h3>
-                <p class="card-text"><i>Descubra a adrenalina em duas rodas com a Kawasaki Ninja 650R 2018. Combinando
-                        potência e estilo aerodinâmico, esta moto oferece uma experiência de condução emocionante e
-                        ágil.</i></p>
-                <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
-            </div>
-
-        </div>
-        <div class="card">
-            <img src="./img/TIGER.jpeg" class="card-img-top" alt="..." height="270px">
-            <div class="card-body">
-                <h3 class="card-title">TRIUMPH TIGER 1200 EXPLORER - 2015</h3>
-                <p class="card-text"><i>Encare qualquer aventura com a Tiger. Essa moto é sinônimo de resistência e
-                        versatilidade, perfeita para explorar novos horizontes, seja na cidade ou em trilhas
-                        desafiadoras.</i></p>
-                <a href="./nossos-servs.html"><button type="button" class="btn btn-primary">Ver Mais</button></a>
-            </div>
-        </div>
-    </div>
-
-</body>
+        </footer>
+        
+    </body>
 
 </html>

@@ -16,37 +16,105 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            background-color: rgb(138, 175, 190);
+            font-family: 'Roboto', sans-serif;
+            background-color: hsla(0, 0%, 85%, 0.849);
+            color: #333;
         }
 
-        .contato {
-            text-align: center;
-            font-family: Georgia, serif;
-            padding: 10px;
-            margin: 10px;
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 2px solid #ffcc00;
         }
 
-        li {
-            list-style: none;
+        .navbar-brand {
+            font-weight: bold;
+            color: #333333 !important;
         }
+
+        .nav-link {
+            color: #333333 !important;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffcc00 !important;
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 204, 0, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .contact-card {
+            background-color: #fff;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-list,
+        .hours-list {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .contact-list li,
+        .hours-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-list li i,
+        .hours-list li i {
+            margin-right: 10px;
+            color: #ffcc00;
+        }
+
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card-body p,
+        .card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
     </style>
 </head>
 
 <body>
     <!-- Barra de navegação -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">Auto Car</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./index.html">Início</a>
                     </li>
@@ -54,66 +122,107 @@
                         <a class="nav-link" href="./contato.html">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./nossos-servs.html">Nossos Serviços</a>
+                        <a class="nav-link" href="./sobre-nos.html">Sobre Nós</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="sobre-nos.html">Sobre nós</a>
+                        <a class="nav-link" href="./nossos-servs.html">Nossos Serviços</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Pesquise Aqui..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
             </div>
         </div>
     </nav>
 
     <!-- Página Contato -->
-    <div class="contato">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="card-title">Contato</h1>
-                    <h3>Entre em contato conosco para dúvidas, reservas ou informações sobre nossos serviços.</h3>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <ul>
-                        <li><b>Telefone:</b><a href="tel:(61) 4002-8922">(61) 4002-8922</a></li>
-                        <li><b>Email:</b><a href="mailto:contato@autovia.com.br">contato@autovia.com.br</a></li>
-                        <li><b>Endereço:</b> Rua da Autovia, 123 - São Paulo, SP</li>
-                        <li><b>Redes sociais:</b><a href="https://pt-br.facebook.com/" target="_blank">Facebook</a> , <a
-                                href="https://www.instagram.com/" target="_blank">Instagram</a>, <a
-                                href="https://www.youtube.com/" target="_blank">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="contato">
+    <div class="contato container py-5">
+        <div class="row mb-4 text-center">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title">Localização e Horário de Funcionamento</h1>
-                        <h4>A Autovia está localizada em um local estratégico, com fácil acesso para clientes de todas
-                            as regiões da cidade. Para sua
-                            comodidade, oferecemos um amplo estacionamento, garantindo que sua experiência seja ainda
-                            mais tranquila.</h4>
-                        <ul>
-                            <li><b>Segunda-feira a sexta-feira:</b> 8h às 18h</li>
-                            <li><b>Sábados:</b> 9h às 13h</li>
-                            <li><b>Domingos e feriados:</b> Fechado</li>
-                        </ul>
-                        <h4>Aproveite nossos horários flexíveis para alugar o veículo que você precisa, seja para um
-                            passeio rápido ou uma viagem longa. Para
-                            mais informações sobre nossos serviços, entre em contato conosco através do telefone ou
-                            e-mail.</h4>
+                        <h1 class="card-title"><i class="fas fa-phone-volume"></i> Contato</h1>
+                        <h3>Entre em contato conosco para dúvidas, reservas ou informações sobre nossos serviços.</h3>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card contact-card mb-4">
+                    <div class="card-body">
+                        <ul class="contact-list">
+                            <li><i class="fas fa-phone"></i> <b>Telefone:</b> <a href="tel:(61) 4002-8922">(61)
+                                    4002-8922</a></li>
+                            <li><i class="fas fa-envelope"></i> <b>Email:</b> <a
+                                    href="mailto:contato@autocar.com.br">contato@autocar.com</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> <b>Endereço:</b> Rua da Autovia, 123 - São Paulo,
+                                SP</li>
+                            <li><i class="fas fa-share-alt"></i> <b>Redes sociais:</b> <a
+                                    href="https://pt-br.facebook.com/" target="_blank">Facebook</a>,  <a
+                                    href="https://www.instagram.com/" target="_blank">Instagram</a>,  <a
+                                    href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card contact-card mb-4">
+                    <div class="card-body">
+                        <h1 class="card-title"><i class="fas fa-map-marker-alt"></i> Localização e Horário de
+                            Funcionamento</h1>
+                        <p>A Autovia está localizada em um local estratégico, com fácil acesso para clientes de todas as
+                            regiões da cidade. Para sua comodidade, oferecemos um amplo estacionamento, garantindo que
+                            sua experiência seja ainda mais tranquila.</p>
+                        <ul class="hours-list">
+                            <li><i class="fas fa-clock"></i> <b>Segunda-feira a sexta-feira:</b> 8h às 18h</li>
+                            <li><i class="fas fa-clock"></i> <b>Sábados:</b> 9h às 13h</li>
+                            <li><i class="fas fa-clock"></i> <b>Domingos e feriados:</b> Fechado</li>
+                        </ul>
+                        <p>Aproveite nossos horários flexíveis para alugar o veículo que você precisa, seja para um
+                            passeio rápido ou uma viagem longa. Para mais informações sobre nossos serviços, entre em
+                            contato conosco através do telefone ou e-mail.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div style="background-color: #1f1f1f; color: #fff; padding: 20px 0; text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                    <div style="flex: 1; min-width: 200px; padding: 10px;">
+                        <h3 style="color: #ffcc00;;">Auto Car</h3>
+                        <p>Seu parceiro de confiança para todas as suas necessidades automotivas.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; padding: 10px;">
+                        <h4>Contato</h4>
+                        <p>Email: contato@autocar.com</p>
+                        <p>Telefone: (61) 4002-8922</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; padding: 10px;">
+                        <h4>Endereço</h4>
+                        <p>Rua dos Automóveis, 123</p>
+                        <p>Brasília, DF, 70000-000</p>
+                    </div>
+                    <div style="flex: 1; min-width: 200px; padding: 10px;">
+                        <h4>Siga-nos</h4>
+                        <p>
+                            <a href="https://pt-br.facebook.com/" target="_blank"
+                                style="color: #ffcc00;; text-decoration: none;">Facebook</a> |
+                            <a href="https://www.instagram.com/" target="_blank"
+                                style="color: #ffcc00;; text-decoration: none;">Instagram</a> |
+                            <a href="https://www.youtube.com/" target="_blank"
+                                style="color: #ffcc00;; text-decoration: none;">YouTube</a>
+                        </p>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <p>&copy; 2024 Auto Car. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
